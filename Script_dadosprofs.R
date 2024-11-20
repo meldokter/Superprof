@@ -55,12 +55,12 @@ cat("Correlação entre RKG e PREÇO:", RKG_PRECO, "\n") #imprimir o valor
 if (!require(ggplot2)) install.packages("ggplot2") 
 library(ggplot2)
 
-ggplot(dadosprofs, aes(x = RKG, y = PREÇO)) +
+ggplot(dadosprofs, aes(x = PREÇO, y = RKG)) +
   geom_point(color = "pink", alpha = 0.7) +   
   geom_smooth(method = "lm", color = "purple", se = FALSE) +  
-  labs(title = "Correlação entre Posição no ranking e preço da aula",
-       x = "Posição no Ranking (RKG)",
-       y = "Preço da Aula (PREÇO)",
+  labs(title = "Correlação entre Preço da aula e posição no ranking",
+       x = "Preço da Aula (PREÇO)",
+       y = "Posição no Ranking (RKG)",
        caption = paste("Correlação: ", round(RKG_PRECO, 2))) +
   theme_minimal()
 
